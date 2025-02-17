@@ -25,6 +25,7 @@ Este projeto implementa um sistema de chat seguro entre clientes e um servidor, 
 1. Clone o repositório:
    ```bash
    git clone https://github.com/vss10/T2-REDES.git
+   cd T2-REDES
    ```
 
 2. Instale as dependências:

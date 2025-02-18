@@ -1,27 +1,25 @@
-# Diffie-Hellman Secure Chat
+# Chat Seguro
 
 ## Descrição
-
-Este projeto implementa um sistema de chat seguro entre clientes e um servidor, utilizando o protocolo de troca de chaves Diffie-Hellman para garantir a segurança na troca de mensagens. O foco está na segurança das comunicações, empregando criptografia simétrica (AES) com chaves derivadas da troca Diffie-Hellman. Os desafios abordados incluem a implementação de um mecanismo seguro de troca de chaves, o gerenciamento de conexões de múltiplos clientes e a criptografia das mensagens trocadas.
+Este projeto implementa um chat seguro baseado em criptografia AES e troca de chaves Diffie-Hellman. O servidor gerencia as conexões dos clientes e a troca de mensagens criptografadas. O cliente permite que os usuários enviem e recebam mensagens protegidas.
 
 ## Tecnologias Utilizadas
-
-- **Linguagem de programação**: Python 3
-- **Bibliotecas/Frameworks**:
-  - `socket`: para comunicação de rede.
-  - `threading`: para suportar múltiplas conexões simultâneas.
-  - `hashlib`: para derivação de chave usando SHA-256.
-  - `pycryptodome`: para criptografia AES.
+- **Linguagem:** Python 3
+- **Bibliotecas:**
+  - `socket` para comunicação em rede
+  - `threading` para manuseio de múltiplas conexões
+  - `hashlib` para derivar chaves seguras
+  - `os` para geração de IVs aleatórios
+  - `tkinter` para a interface gráfica do chat
+  - `pycryptodome` para criptografia AES
 
 ## Como Executar
 
 ### Requisitos
-
-- Python 3.6 ou superior instalado.
-- Biblioteca `pycryptodome` instalada.
+- Python 3 instalado
+- Dependências listadas no arquivo `requirements.txt`
 
 ### Instruções de Execução
-
 1. Clone o repositório:
    ```bash
    git clone https://github.com/vss10/T2-REDES.git
@@ -30,46 +28,36 @@ Este projeto implementa um sistema de chat seguro entre clientes e um servidor, 
 
 2. Instale as dependências:
    ```bash
-   pip install pycryptodome
+   pip install -r requirements.txt
    ```
 
-3. Execute o servidor:
+3. Inicie o servidor:
    ```bash
    python server.py
    ```
 
-4. Execute o cliente:
+4. Inicie o cliente:
    ```bash
    python client.py
    ```
-
-   Ao iniciar o cliente, escolha um nome de usuário e comece a enviar mensagens. Use o comando `/server` no início da mensagem para enviá-la apenas ao servidor.
 
 ## Como Testar
-
-1. Inicie o servidor em um terminal:
-   ```bash
-   python server.py
-   ```
-
-2. Inicie dois ou mais clientes em terminais diferentes:
-   ```bash
-   python client.py
-   ```
-
-3. Envie mensagens entre os clientes e observe como elas são exibidas em cada terminal. Teste também mensagens enviadas apenas ao servidor com o comando `/server`.
+- Execute o servidor.
+- Abra múltiplas instâncias do cliente e conecte-se.
+- Envie mensagens entre os clientes e verifique a criptografia e a troca segura de mensagens.
+- Caso a mensagem inicie com `/server` essa mensagem será enviada somente ao servidor.
 
 ## Funcionalidades Implementadas
-
-- Troca de chaves segura com Diffie-Hellman.
-- Criptografia das mensagens usando AES no modo CBC.
-- Suporte a múltiplos clientes simultaneamente.
+- Troca segura de chaves usando Diffie-Hellman.
+- Comunicação criptografada com AES-128 (modo CBC).
+- Interface gráfica para interação com o chat.
+- Suporte a múltiplos clientes simultâneos.
+- Identificação de usuário via username.
 - Comunicação direta com o servidor ou broadcast para todos os clientes.
-- Identificação dos clientes por meio de usernames.
 
 ## Possíveis Melhorias Futuras
+- Melhorar a segurança com chaves maiores para Diffie-Hellman.
+- Implementar autenticação para evitar ataques de intermediário (MITM).
+- Adicionar suporte a conexões seguras via TLS.
+- Melhorar a interface gráfica com mais funcionalidades (ex: envio de arquivos, emojis).
 
-- Adicionar autenticação de clientes para evitar conexões não autorizadas.
-- Suporte para mensagens privadas entre clientes específicos.
-- Interface gráfica para melhorar a experiência do usuário.
-- Adicionar tempos de expiração para as conexões inativas.

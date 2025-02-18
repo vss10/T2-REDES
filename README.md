@@ -60,4 +60,6 @@ Este projeto implementa um chat seguro baseado em criptografia AES e troca de ch
 - Implementar autenticação para evitar ataques de intermediário (MITM).
 - Adicionar suporte a conexões seguras via TLS.
 - Melhorar a interface gráfica com mais funcionalidades (ex: envio de arquivos, emojis).
+- Suporte para mensagens privadas entre usuários.
+- Adicionar tempo de expiração para contas inativas.
 
